@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <head> </head>
+  <body>
+    <form>
+      <label>Name:</label>
+      <input type="text" placeholder="Enter Project Name" id="name" />
+      <button type="button" onclick="ab()">Submit</button>
+    </form>
+    <br /><br />
+    <table id="table" border="1" style="padding: 10px">
+      <tr>
+        <td>Project Name</td>
+        <td>Action</td>
+      </tr>
+    </table>
+    <h1 id="h1"></h1>
+    <!-- <button type="button">Pending</button>
+    <button type="button" onclick="complete()">Complete</button>
+    <button type="button" onclick="deletes()">delete</button> -->
+  </body>
+
+  <script>
+    function ab() {
+      var ans = document.getElementById("name").value;
+      var tr = document.createElement("tr");
+      var td = document.createElement("td");
+      td.innerHTML = ans;
+      var td2 = document.createElement("td");
+
+      var b1 = document.createElement("button");
+      b1.innerHTML = "Pending";
+      b1.style.margin = "5px";
+
+      var b2 = document.createElement("button");
+      b2.innerHTML = "Complete";
+      b2.style.margin = "5px";
+
+      var b3 = document.createElement("button");
+      b3.innerHTML = "Delete";
+      b3.style.margin = "5px";
+
+      b1.onclick = function () {
+        td.style.backgroundColor = "red";
+      };
+
+      b2.onclick = function () {
+        td.style.textDecoration = "line-through";
+        td.style.backgroundColor = "green";
+      };
+
+      b3.onclick = function () {
+        td.innerHTML = "";
+        tr.remove();
+      };
+
+      td2.appendChild(b1);
+      td2.appendChild(b2);
+      td2.appendChild(b3);
+      tr.appendChild(td);
+      tr.appendChild(td2);
+      document.getElementById("table").appendChild(tr);
+    }
+  </script>
+</html>
